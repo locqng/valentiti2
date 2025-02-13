@@ -1,0 +1,151 @@
+.background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("/bg.webp");
+  background-repeat: repeat;
+  background-position: 0 0;
+  background-size: auto 100%;
+  /*adjust s value for speed*/
+  animation: animatedBackground 500s linear infinite;
+}
+
+.container {
+  display: inline-flex; /* Makes the container shrink to fit the image */
+  justify-content: center; /* Centers the image horizontally */
+  align-items: center; /* Centers the image vertically */
+  padding: 10px;
+  width: 100%;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+  }
+  70% {
+    transform: translateX(-10%);
+  }
+  50% {
+    transform: translateX(10%);
+  }
+}
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.centerImage {
+  width: 50%; /* Scales the image to 50% */
+  height: auto; /* Maintains the aspect ratio */
+}
+
+.button-container {
+  display: flex;
+  gap: 30px; /* Space between buttons */
+  justify-content: center;
+  margin-top: 20px;
+}
+
+button {
+  position: relative; /* Ensure the button stays in place */
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 50px; /* Rounded corners */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2; /* Ensure the button is above the image */
+}
+
+.yes-button {
+  background-color: #4caf50; /* Green */
+  color: white;
+  transition: background-color 2s ease;
+  z-index: 3;
+}
+
+.yes-button:hover {
+  background-color: #f43a81; /* Darker green on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+  animation: pulse 0.5s ease infinite;
+}
+
+.no-button {
+  background-color: #f44336; /* Red */
+  color: white;
+  transition: background-color 2s ease;
+}
+
+.no-button:hover {
+  /* background-color: #d32f2f; Darker red on hover */
+  background-color: #3c3939;
+  animation: shake 0.15s ease infinite;
+}
+
+/* Container for the image */
+.image-container {
+  position: fixed; /* Fix the image to the viewport */
+  bottom: 0; /* Start at the bottom of the screen */
+  left: 50%; /* Align to the left */
+  width: 100%; /* Full width */
+  overflow: hidden; /* Hide overflow */
+  z-index: 1; /* Ensure the image is below the button */
+}
+
+/* Image styling */
+.submerge-image {
+  width: 100%; /* Full width */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Remove extra space below the image */
+  transform: translateY(100%); /* Hide the image below the viewport */
+  transition: transform 4s ease; /* Smooth transition for the submerge effect */
+  max-height: 30vh;
+  max-width: 30vh;
+}
+
+/* Hover effect to make the image submerge */
+.hover-button:hover + .image-container .submerge-image {
+  transform: translateY(0); /* Bring the image into view */
+}
+
+.no-button-1st {
+  order: 1;
+}
+
+.no-button-2nd {
+  order: 1;
+  top: -70px;
+}
+
+.yes-button-1st {
+  order: 2;
+}
+
+.yes-button-3rd {
+  order: 1;
+  top: -70px;
+}
+
+.no-button-3rd {
+  order: 1;
+}
+
+.hate {
+  width: 30%;
+  position: fixed;
+  left: 10px;
+}
+
+.hate2 {
+  width: 30%;
+  position: fixed;
+  right: 10px;
+}

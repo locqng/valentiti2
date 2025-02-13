@@ -1,0 +1,22 @@
+
+<div class="background">
+<div class="container">
+  <img *ngIf="!clickYes"class="centerImage" src="cat ask.jpg">
+  <img *ngIf="!clickYes && buttonSize > 2" class="hate" src="image.png">
+  <img *ngIf="clickYes" class="happy" src="kiss.jpg">
+  <img *ngIf="clickYes" class="hate" src="happy-happy.gif">
+  <img *ngIf="clickYes" class="hate2" src="happy-happy.gif">
+
+
+</div>
+<div *ngIf="!clickYes" class="button-container">
+  <button class="yes-button" (click)="onYesClick()" [ngClass]="[noClickStyleYes]" [ngStyle]="{'scale': buttonSize}">{{yesText}}</button>
+  <button class="no-button hover-button" (click)="onNoClick()" [ngClass]="[noClickStyle]">{{noText}}</button>
+  <div class="image-container">
+    <img src="crying.png" alt="Submerging Image" class="submerge-image">
+  </div>
+</div>
+</div>
+
+
+
